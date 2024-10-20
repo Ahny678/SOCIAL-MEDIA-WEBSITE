@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #a020f0; /* Purple text */
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .video {
+            width: 280px;
+            height: 500px;
+            background-color: #333;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps the aspect ratio */
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .username, .description {
+            margin: 0;
+            padding: 0;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .button-label {
+            margin-top: 5px;
+            font-size: 14px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- Video Section -->
+        <div class="video">
+            <video src="{{ object.video.url }}" controls></video>
+            <div class="video-info">
+                <p class="username">{{ object.user.username }}</p>
+                <p class="description">{{ object.description }}</p>
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="buttons">
+            <div class="button">
+                <img src="{{ profile_picture_url }}" alt="Profile Pic" style="width: 40px; height: 40px; border-radius: 50%;">
+            </div>
+            <p class="button-label">Profile</p>
+
+            <div class="button">
+                <span>&#10084;</span>
+            </div>
+            <p class="button-label">Like</p>
+
+            <div class="button">
+                <span>&#128172;</span>
+            </div>
+            <p class="button-label">Comment</p>
+
+            <div class="button">
+                <span>&#9993;</span>
+            </div>
+            <p class="button-label">Message</p>
+        </div>
+    </div>
+</body>
+</html>
+
